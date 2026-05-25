@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation">
+  <meta name="keywords" content="TODO, keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../../index.html">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://JU-SUK.github.io">Jusuk Lee</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sjlee.cc/">Seungjae Lee</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jhshin00.github.io/">Jonghun Shin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://junghoseong.github.io/">Hoseong Jung</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://shkim37.github.io/">Sungha Kim</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://dscho1234.github.io/">Daesol Cho</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&hl=en">H. Jin Kim</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a><sup>2&dagger;</sup>,</span>
+            <span class="author-block">
+              <a href="https://furong-huang.com/">Furong Huang</a><sup>2&dagger;</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Seoul National University,</span>
+            <span class="author-block"><sup>2</sup>University of Maryland, College Park,</span>
+            <span class="author-block"><sup>3</sup>Georgia Institute of Technology</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="color:#64748b; margin-top:6px;">
+            <sup>&dagger;</sup> equal advising
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link. -->
+              <span class="link-block">
+                <a href="TODO_PAPER_PDF_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="TODO_ARXIV_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="TODO_CODE_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- HuggingFace Link. -->
+              <span class="link-block">
+                <a href="TODO_HF_URL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">🤗</span>
+                  <span>Hugging Face</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser: TL;DR one-liner + overview video. Place teaser.mp4 under static/videos/. -->
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <strong>TL;DR:</strong> DynaFLIP learns dynamics-aware visual representations by aligning image transitions, language, and 3D flow &mdash; preserving the control-relevant information for manipulation.
+      </h2>
+      <video id="teaser"
+             src="./static/videos/project_page_overview_video.mp4"
+             poster="./static/images/project_page_overview_poster.jpg"
+             controls muted preload="metadata" playsinline
+             style="display:block; width:100%; margin:0 auto;">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-alt">
+  <div class="container is-max-widescreen">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <h3 class="title is-5">Motivation</h3>
+          <p>
+            Robot manipulation critically depends on perception that preserves the action-relevant aspects of a scene. Yet most robot learning pipelines are built upon visual encoders pre-trained for static recognition or vision-language alignment, leaving motion understanding to downstream policies.
+          </p>
+          <h3 class="title is-5">Approach</h3>
+          <p>
+            We introduce DynaFLIP, a dynamics-aware multimodal pre-training framework that pushes motion understanding upstream into perception. We construct image–language–3D flow triplets from heterogeneous human and robot videos, and use these triplets as training-time supervision to shape an image-only encoder.
+          </p>
+          <h3 class="title is-5">Method</h3>
+          <p>
+            Our key idea is to encourage the three modalities to span a small simplex volume in the shared hyperspherical space—a smaller simplex volume indicating stronger alignment. To avoid the geometric ambiguity and trivial collapse of naive volume minimization, we combine simplex-volume minimization with a cosine regularizer and a contrastive objective.
+          </p>
+          <h3 class="title is-5">Results</h3>
+          <p>
+            Our analyses show that DynaFLIP focuses on control-relevant regions critical for manipulation. The resulting dynamics-aware representations serve as reusable visual backbones and consistently outperform baselines across diverse downstream policies, including VLAs. We validate this across diverse simulation and real-world setups, with gains reaching +22.5% under out-of-distribution scenarios. Our results suggest that robot generalization improves when visual representations are trained to encode not just what is present, but how the world changes under action.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overall Framework of DynaFLIP</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <video src="./static/videos/dynaflip_method.mp4"
+               poster="./static/images/architecture.png"
+               autoplay muted loop playsinline controls
+               preload="metadata"
+               style="width:100%; height:auto; border-radius:8px;"
+               aria-label="DynaFLIP method overview video">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Dataset Viewer -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset Viewer</h2>
+      </div>
+    </div>
+
+    <div class="tabs is-centered pill-tabs">
+      <ul id="dataset-tabs">
+        <li class="is-active" data-dataset="agibot"><a>Agibot</a></li>
+        <li data-dataset="ego4d"><a>Ego4D</a></li>
+        <li data-dataset="droid"><a>Droid</a></li>
+        <li data-dataset="bridge"><a>Bridge</a></li>
+        <li data-dataset="ssv2"><a>SSV2</a></li>
+        <li data-dataset="oxe"><a>OXE</a></li>
+      </ul>
+    </div>
+
+    <p class="dataset-hint">💡 Click on any thumbnail to view the (image, 3D flow, language) triplet</p>
+
+    <div id="dataset-thumbnails" class="dataset-thumbnails"></div>
+
+    <div class="dataset-detail">
+      <div class="columns is-centered">
+        <div class="column is-one-third has-text-centered">
+          <div class="triplet-label">Image</div>
+          <img id="detail-image" src="./static/dataset/placeholder.png" alt="Image">
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="triplet-label">3D Flow</div>
+          <img id="detail-flow" src="./static/dataset/placeholder.png" alt="3D Flow">
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="triplet-label">Language</div>
+          <p id="detail-language">Select a thumbnail above.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Experiments -->
+<section class="section section-alt" id="Experiments">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Experiments</h2>
+
+    <!-- 1) Dynamics-Aware Representation -->
+    <div class="experiments-block" data-group="representation">
+      <h3 class="title is-4 has-text-centered">DynaFLIP learns dynamics-aware representations that preserve control-relevant information</h3>
+
+      <div class="tabs is-centered experiments-tabs pill-tabs">
+        <ul>
+          <li class="is-active" data-tab="metric"><a>Control-relevant metric</a></li>
+          <li data-tab="pca"><a>PCA</a></li>
+          <li data-tab="gradcam"><a>Grad-CAM</a></li>
+        </ul>
+      </div>
+
+      <div class="experiments-panel is-active" data-tab="metric">
+        <p class="experiments-intro">Higher control-relevant score <strong>S<sub>m</sub></strong> (x-axis) correlates with higher manipulation success rate (y-axis). <strong>DynaFLIP</strong> sits at the top-right of both plots &mdash; its dynamics-aware representations preserve control-relevant information and improve manipulation performance.</p>
+        <img src="./static/experiments/representation/metric.png" alt="Control-relevant metric figure">
+      </div>
+      <div class="experiments-panel" data-tab="pca">
+        <p class="experiments-intro"><strong>DynaFLIP</strong> produces more spatially coherent and object-aware feature structures than the baselines.</p>
+        <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/pca_original.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">Original</p>
+          </div>
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/pca_dinov2.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">DINOv2</p>
+          </div>
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/pca_siglip.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">SigLIP</p>
+          </div>
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/pca_dynaflip.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">DynaFLIP</p>
+          </div>
+        </div>
+        <p class="experiments-caption">Feature visualization with PCA</p>
+      </div>
+      <div class="experiments-panel" data-tab="gradcam">
+        <p class="experiments-intro"><strong>DynaFLIP</strong> attends to control-relevant regions (i.e., manipulated objects and interaction regions), whereas baselines distribute attention over less relevant areas such as the background or irrelevant objects.</p>
+        <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/gradcam_original.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">Original</p>
+          </div>
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/gradcam_dinov2.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">DINOv2</p>
+          </div>
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/gradcam_siglip.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">SigLIP</p>
+          </div>
+          <div class="column is-half-mobile is-one-quarter-tablet has-text-centered">
+            <video src="./static/experiments/representation/gradcam_dynaflip.mp4"
+                   poster="./static/experiments/placeholder.png"
+                   autoplay muted loop playsinline></video>
+            <p class="compare-label">DynaFLIP</p>
+          </div>
+        </div>
+        <p class="experiments-caption">Grad-CAM heatmaps over action prediction</p>
+      </div>
+    </div>
+
+    <!-- 2) Policy-Agnostic Improvement -->
+    <div class="experiments-block" data-group="policy">
+      <h3 class="title is-4 has-text-centered">DynaFLIP serves as a visual backbone for diverse downstream policies (VLA, diffusion policy, MLP)</h3>
+
+      <div class="tabs is-centered experiments-tabs pill-tabs">
+        <ul>
+          <li class="is-active" data-tab="vla"><a title="Vision-Language-Action policy">VLA</a></li>
+          <li data-tab="dp"><a title="Diffusion Policy">DP</a></li>
+          <li data-tab="mlp"><a title="MLP policy">MLP</a></li>
+        </ul>
+      </div>
+
+      <div class="experiments-panel is-active" data-tab="vla">
+        <p class="experiments-intro"><strong>DynaFLIP</strong> outperforms baseline image encoders on real-world manipulation when used with a Vision-Language-Action model (&pi;<sub>0.5</sub>).</p>
+        <table class="table is-bordered is-narrow is-fullwidth result-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Image<br>Encoder</th>
+              <th colspan="4">Real-World Manipulation</th>
+            </tr>
+            <tr>
+              <th>Pick &lt;object&gt; into Sink</th>
+              <th>Pour almonds into &lt;object&gt;</th>
+              <th>Unfold Towel</th>
+              <th class="result-mean">Mean</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DINOv2</td>
+              <td>75</td><td>65</td><td>40</td><td class="result-mean">60.0</td>
+            </tr>
+            <tr>
+              <td>SigLIP</td>
+              <td>55</td><td>60</td><td>20</td><td class="result-mean">45.0</td>
+            </tr>
+            <tr>
+              <td>DynaFLIP</td>
+              <td><strong>90</strong></td><td><strong>70</strong></td><td><strong>50</strong></td><td class="result-mean"><strong>70.0</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="vla-carousel">
+          <button class="vla-arrow vla-prev" type="button" aria-label="Previous">&lsaquo;</button>
+          <button class="vla-arrow vla-next" type="button" aria-label="Next">&rsaquo;</button>
+
+          <div class="vla-slide is-active" data-slide="0">
+            <p class="vla-task-label">Unfold Towel</p>
+            <p class="vla-instruction">"Unfold towel"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_unfold_01_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_unfold_01_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_unfold_01_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="1">
+            <p class="vla-task-label">Pick &lt;object&gt; into Sink &mdash; Example 1</p>
+            <p class="vla-instruction">"Pick up pear and place it in the sink"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pick_01_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pick_01_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pick_01_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="2">
+            <p class="vla-task-label">Pick &lt;object&gt; into Sink &mdash; Example 2</p>
+            <p class="vla-instruction">"Pick up plate and place it in the sink"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pick_02_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pick_02_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pick_02_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="3">
+            <p class="vla-task-label">Pour almonds into &lt;object&gt; &mdash; Example 1</p>
+            <p class="vla-instruction">"Pour almonds into yellow plate"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pour_01_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pour_01_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pour_01_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="4">
+            <p class="vla-task-label">Pour almonds into &lt;object&gt; &mdash; Example 2</p>
+            <p class="vla-instruction">"Pour almonds into brown box"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pour_02_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pour_02_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-warn"><i class="fas fa-exclamation-triangle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/vla_pour_02_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-dots">
+            <span class="vla-dot is-active" data-slide="0"></span>
+            <span class="vla-dot" data-slide="1"></span>
+            <span class="vla-dot" data-slide="2"></span>
+            <span class="vla-dot" data-slide="3"></span>
+            <span class="vla-dot" data-slide="4"></span>
+          </div>
+        </div>
+
+      </div>
+      <div class="experiments-panel" data-tab="dp">
+        <p class="experiments-intro">On the LIBERO benchmark with Diffusion Policy, <strong>DynaFLIP</strong> consistently outperforms baselines in both frozen and LoRA fine-tuned settings.</p>
+        <table class="table is-bordered is-narrow is-fullwidth result-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Image<br>Encoder</th>
+              <th rowspan="2">Language<br>Encoder</th>
+              <th colspan="6">Frozen</th>
+              <th colspan="6">LoRA Fine-tuned</th>
+            </tr>
+            <tr>
+              <th>90</th><th>Goal</th><th>Object</th><th>Spatial</th><th>Long</th><th class="result-mean">Mean</th>
+              <th>90</th><th>Goal</th><th>Object</th><th>Spatial</th><th>Long</th><th class="result-mean">Mean</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DINOv2</td><td class="encoder">CLIP</td>
+              <td>14.4</td><td><strong>75.0</strong></td><td>33.5</td><td>42.5</td><td><strong>20.5</strong></td><td class="result-mean">37.2</td>
+              <td><strong>83.6</strong></td><td>77.5</td><td>82.0</td><td><strong>81.0</strong></td><td>67.5</td><td class="result-mean">78.3</td>
+            </tr>
+            <tr>
+              <td>SigLIP</td><td class="encoder">SigLIP</td>
+              <td>24.3</td><td>54.5</td><td>13.0</td><td><strong>52.0</strong></td><td>8.5</td><td class="result-mean">30.5</td>
+              <td>82.6</td><td>80.5</td><td>82.0</td><td>74.0</td><td>76.5</td><td class="result-mean">79.1</td>
+            </tr>
+            <tr>
+              <td>DynaFLIP</td><td class="encoder">DynaFLIP</td>
+              <td><strong>31.7</strong></td><td>70.5</td><td><strong>37.5</strong></td><td>51.5</td><td>16.5</td><td class="result-mean"><strong>41.5</strong></td>
+              <td>78.1</td><td><strong>84.5</strong></td><td><strong>83.5</strong></td><td>78.5</td><td><strong>80.5</strong></td><td class="result-mean"><strong>81.0</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="vla-carousel">
+          <button class="vla-arrow vla-prev" type="button" aria-label="Previous">&lsaquo;</button>
+          <button class="vla-arrow vla-next" type="button" aria-label="Next">&rsaquo;</button>
+
+          <div class="vla-slide is-active" data-slide="0">
+            <p class="vla-task-label">"Turn on the stove and put the moka pot on it"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_0_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_0_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_0_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="1">
+            <p class="vla-task-label">"Put the white mug on the plate and put the chocolate pudding to the right of the plate"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_1_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_1_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_1_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="2">
+            <p class="vla-task-label">"Put both the alphabet soup and the cream cheese box in the basket"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_2_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_2_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/dp_2_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-dots">
+            <span class="vla-dot is-active" data-slide="0"></span>
+            <span class="vla-dot" data-slide="1"></span>
+            <span class="vla-dot" data-slide="2"></span>
+          </div>
+        </div>
+
+      </div>
+      <div class="experiments-panel" data-tab="mlp">
+        <p class="experiments-intro">A lightweight three-layer MLP policy ensures that downstream performance reflects representation quality rather than policy capacity. <strong>DynaFLIP</strong> achieves the highest success rates on both MetaWorld and RLBench.</p>
+
+        <div class="columns is-vcentered">
+          <div class="column is-5">
+            <p class="result-table-title">MetaWorld</p>
+            <table class="table is-bordered is-narrow is-fullwidth result-table">
+              <colgroup>
+                <col style="width: 24%">
+                <col style="width: 19%">
+                <col style="width: 19%">
+                <col style="width: 19%">
+                <col style="width: 19%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>Easy (7)</th>
+                  <th>Medium (5)</th>
+                  <th>Hard &amp; Very Hard (3)</th>
+                  <th class="result-mean">Mean</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>DINOv2</td><td>77.7</td><td>77.6</td><td>64.0</td><td class="result-mean">74.9</td></tr>
+                <tr><td>SigLIP</td><td>74.3</td><td>72.8</td><td>56.7</td><td class="result-mean">70.4</td></tr>
+                <tr><td>DynaFLIP</td><td><strong>81.1</strong></td><td><strong>81.6</strong></td><td><strong>69.3</strong></td><td class="result-mean"><strong>78.9</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="column is-7">
+            <p class="result-table-title">RLBench</p>
+            <table class="table is-bordered is-narrow is-fullwidth result-table">
+              <colgroup>
+                <col style="width: 12%">
+                <col style="width: 10%">
+                <col style="width: 17%">
+                <col style="width: 11%">
+                <col style="width: 11%">
+                <col style="width: 11%">
+                <col style="width: 14%">
+                <col style="width: 14%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>close box</th>
+                  <th>put rubbish in bin</th>
+                  <th>close laptop lid</th>
+                  <th>water plants</th>
+                  <th>unplug charger</th>
+                  <th>toilet seat down</th>
+                  <th class="result-mean">Mean</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>DINOv2</td><td>84</td><td><strong>12</strong></td><td><strong>76</strong></td><td>4</td><td>24</td><td>84</td><td class="result-mean">47.3</td></tr>
+                <tr><td>SigLIP</td><td>80</td><td>4</td><td>52</td><td>0</td><td>12</td><td>76</td><td class="result-mean">37.3</td></tr>
+                <tr><td>DynaFLIP</td><td><strong>88</strong></td><td>8</td><td><strong>76</strong></td><td><strong>20</strong></td><td><strong>36</strong></td><td><strong>96</strong></td><td class="result-mean"><strong>54.0</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="vla-carousel">
+          <button class="vla-arrow vla-prev" type="button" aria-label="Previous">&lsaquo;</button>
+          <button class="vla-arrow vla-next" type="button" aria-label="Next">&rsaquo;</button>
+
+          <div class="vla-slide is-active" data-slide="0">
+            <p class="vla-task-label">MetaWorld Example</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/mlp_metaworld_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/mlp_metaworld_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/mlp_metaworld_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="1">
+            <p class="vla-task-label">RLBench Example</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/mlp_rlbench_dinov2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/mlp_rlbench_siglip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/policy/mlp_rlbench_dynaflip.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-dots">
+            <span class="vla-dot is-active" data-slide="0"></span>
+            <span class="vla-dot" data-slide="1"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) Robustness to Perturbations -->
+    <div class="experiments-block" data-group="perturbation">
+      <h3 class="title is-4 has-text-centered">DynaFLIP maintains strong performance under out-of-distribution perturbations</h3>
+
+      <table class="table is-bordered is-narrow is-fullwidth result-table">
+        <thead>
+          <tr>
+            <th>Image<br>Encoder</th>
+            <th>Visual, spatial perturbations</th>
+            <th>Semantic perturbations</th>
+            <th class="result-mean">Mean</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DINOv2</td>
+            <td>17.5</td><td>27.5</td><td class="result-mean">22.5</td>
+          </tr>
+          <tr>
+            <td>SigLIP</td>
+            <td>25.0</td><td>30.0</td><td class="result-mean">27.5</td>
+          </tr>
+          <tr>
+            <td>DynaFLIP</td>
+            <td><strong>40.0</strong></td><td><strong>75.0</strong></td><td class="result-mean"><strong>57.5</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tabs is-centered experiments-tabs pill-tabs">
+        <ul>
+          <li class="is-active" data-tab="visual-spatial"><a>Visual, spatial perturbations</a></li>
+          <li data-tab="semantic"><a>Semantic perturbations</a></li>
+        </ul>
+      </div>
+
+      <div class="experiments-panel is-active" data-tab="visual-spatial">
+        <p class="experiments-intro"><strong>DynaFLIP</strong>'s focus on control-relevant regions enables it to remain robust to changes in object layout and the presence of distractors.</p>
+        <div class="vla-carousel">
+          <button class="vla-arrow vla-prev" type="button" aria-label="Previous">&lsaquo;</button>
+          <button class="vla-arrow vla-next" type="button" aria-label="Next">&rsaquo;</button>
+
+          <div class="vla-slide is-active" data-slide="0">
+            <p class="vla-task-label">Unseen object position, distractor</p>
+            <p class="vla-instruction">"Pick up orange and place it in the sink"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/motion_dinov2_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/motion_siglip_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/motion_dynaflip_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="1">
+            <p class="vla-task-label">Unseen object position, distractor</p>
+            <p class="vla-instruction">"Pour almonds into gray pan"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/motion_dinov2_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/motion_siglip_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/motion_dynaflip_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-dots">
+            <span class="vla-dot is-active" data-slide="0"></span>
+            <span class="vla-dot" data-slide="1"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experiments-panel" data-tab="semantic">
+        <p class="experiments-intro"><strong>DynaFLIP</strong> incorporates language as one of its pre-training modalities and learns to align visual changes with task-relevant instructions, yielding representations that remain robust under unseen objects and instructions.</p>
+        <div class="vla-carousel">
+          <button class="vla-arrow vla-prev" type="button" aria-label="Previous">&lsaquo;</button>
+          <button class="vla-arrow vla-next" type="button" aria-label="Next">&rsaquo;</button>
+
+          <div class="vla-slide is-active" data-slide="0">
+            <p class="vla-task-label">Unseen object, instruction</p>
+            <p class="vla-instruction">"Pick up orange doll and place it in sink"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/semantic_dinov2_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/semantic_siglip_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/semantic_dynaflip_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="1">
+            <p class="vla-task-label">Unseen object, instruction</p>
+            <p class="vla-instruction">"Pour almonds into metal tray"</p>
+            <div class="columns is-multiline is-mobile is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/semantic_dinov2_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DINOv2</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/semantic_siglip_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">SigLIP</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/experiments/perturbation/semantic_dynaflip_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline></video>
+                <p class="compare-label">DynaFLIP</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-dots">
+            <span class="vla-dot is-active" data-slide="0"></span>
+            <span class="vla-dot" data-slide="1"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4) Design Choices -->
+    <div class="experiments-block" data-group="design">
+      <h3 class="title is-4 has-text-centered">Design choices of DynaFLIP</h3>
+
+      <div class="tabs is-centered experiments-tabs pill-tabs">
+        <ul>
+          <li class="is-active" data-tab="multimodal"><a>Multimodal input</a></li>
+          <li data-tab="alignment"><a>Alignment design</a></li>
+          <li data-tab="optimization"><a>Optimization pitfalls</a></li>
+          <li data-tab="auxiliary"><a>Auxiliary objectives</a></li>
+        </ul>
+      </div>
+
+      <div class="experiments-panel is-active" data-tab="multimodal">
+        <p class="experiments-intro">All three modalities are necessary for dynamics-aware representation learning.</p>
+        <table class="table is-bordered is-narrow is-fullwidth result-table" style="max-width: 640px;">
+          <colgroup><col style="width: 65%"><col style="width: 35%"></colgroup>
+          <thead><tr><th>Variant</th><th class="result-mean">Mean</th></tr></thead>
+          <tbody>
+            <tr><td>w/o. 3D flow</td><td class="result-mean">37.1</td></tr>
+            <tr><td>w/o. Language</td><td class="result-mean">35.4</td></tr>
+            <tr><td>DynaFLIP (full)</td><td class="result-mean"><strong>44.0</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="experiments-panel" data-tab="alignment">
+        <p class="experiments-intro">Alignment design matters more than simply adding modalities.</p>
+        <table class="table is-bordered is-narrow is-fullwidth result-table" style="max-width: 640px;">
+          <colgroup><col style="width: 65%"><col style="width: 35%"></colgroup>
+          <thead><tr><th>Variant</th><th class="result-mean">Mean</th></tr></thead>
+          <tbody>
+            <tr><td>Anchor-based alignment</td><td class="result-mean">31.8</td></tr>
+            <tr><td>DynaFLIP (full)</td><td class="result-mean"><strong>44.0</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="experiments-panel" data-tab="optimization">
+        <p class="experiments-intro">Mitigating optimization pitfalls is crucial for stable learning.</p>
+        <table class="table is-bordered is-narrow is-fullwidth result-table" style="max-width: 640px;">
+          <colgroup><col style="width: 65%"><col style="width: 35%"></colgroup>
+          <thead><tr><th>Variant</th><th class="result-mean">Mean</th></tr></thead>
+          <tbody>
+            <tr><td>w/o. Negative tuples</td><td class="result-mean">18.1</td></tr>
+            <tr><td>w/o. Cosine reg.</td><td class="result-mean">39.8</td></tr>
+            <tr><td>DynaFLIP (full)</td><td class="result-mean"><strong>44.0</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="experiments-panel" data-tab="auxiliary">
+        <p class="experiments-intro">Auxiliary objectives provide additional gains.</p>
+        <table class="table is-bordered is-narrow is-fullwidth result-table" style="max-width: 640px;">
+          <colgroup><col style="width: 65%"><col style="width: 35%"></colgroup>
+          <thead><tr><th>Variant</th><th class="result-mean">Mean</th></tr></thead>
+          <tbody>
+            <tr><td>w/o. &Lscr;<sub>act</sub></td><td class="result-mean">43.4</td></tr>
+            <tr><td>w/o. &Lscr;<sub>tcn</sub></td><td class="result-mean">39.6</td></tr>
+            <tr><td>DynaFLIP (full)</td><td class="result-mean"><strong>44.0</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lee2026dynaflip,
+  title={DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation},
+  author={Lee, Jusuk and Lee, Seungjae and Shin, Jonghun and Jung, Hoseong and Kim, Sungha and Cho, Daesol and Kim, H. Jin and Huang, Jia-Bin and Huang, Furong},
+  journal={arXiv preprint arXiv:TODO_ARXIV_ID},
+  year={2026},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This page uses the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>
+        and is licensed under a <a rel="license"
+        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="./static/js/dataset.js"></script>
+<script src="./static/js/dataset-viewer.js"></script>
+<script src="./static/js/experiments.js"></script>
+
+</body>
+</html>
