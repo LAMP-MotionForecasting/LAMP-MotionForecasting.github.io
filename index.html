@@ -36,7 +36,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://JU-SUK.github.io/">
+      <a class="navbar-item" href="https://ju-suk.github.io/">
         <span class="icon"><i class="fas fa-home"></i></span>
       </a>
     </div>
@@ -49,10 +49,10 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span class="dynaflip-name">DynaFLIP</span>: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation</h1>
+          <h1 class="title is-1 publication-title"><strong>DynaFLIP</strong>: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://JU-SUK.github.io">Jusuk Lee</a><sup>1</sup></span>&emsp;
+              <a href="https://ju-suk.github.io">Jusuk Lee</a><sup>1</sup></span>&emsp;
             <span class="author-block">
               <a href="https://sjlee.cc/">Seungjae Lee</a><sup>2</sup></span>&emsp;
             <span class="author-block">
@@ -128,9 +128,6 @@
 <section class="hero teaser">
   <div class="container is-max-widescreen">
     <div class="hero-body">
-      <h2 class="subtitle has-text-centered">
-        <strong>TL;DR:</strong> DynaFLIP learns dynamics-aware visual representations by aligning image transitions, language, and 3D flow &mdash; preserving the control-relevant information for manipulation.
-      </h2>
       <video id="teaser"
              src="./static/videos/project_page_overview_video.mp4"
              poster="./static/images/project_page_overview_poster.jpg"
@@ -138,6 +135,52 @@
              style="display:block; width:100%; margin:0 auto;">
         Your browser does not support the video tag.
       </video>
+      <h2 class="subtitle has-text-centered" style="font-size: 1.4rem; margin: 1.5rem auto 0; max-width: 1200px;">
+        <strong>TL;DR:</strong> DynaFLIP learns dynamics-aware visual representations by aligning image transitions, language, and 3D flow &mdash; preserving the control-relevant information for manipulation.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results headline: high-level performance summary -->
+<section class="section section-alt">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">DynaFLIP outperforms existing vision foundation models</h2>
+        <p class="is-size-5" style="max-width: 900px; margin: 0.5rem auto 1.5rem;">
+          Consistent gains across simulation (MetaWorld, RLBench, LIBERO) and real-world manipulation &mdash; with the lead reaching <strong>+22.5%</strong> on out-of-distribution scenarios.
+        </p>
+        <img src="./static/images/downstream_performance.png"
+             alt="DynaFLIP downstream performance across simulation, metric, and real-world axes"
+             style="display:block; max-width: 720px; width: 100%; margin: 0 auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overall Framework of DynaFLIP</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <video src="./static/videos/dynaflip_method.mp4"
+               poster="./static/images/architecture.png"
+               autoplay muted loop playsinline controls
+               preload="metadata"
+               style="width:100%; height:auto; border-radius:8px;"
+               aria-label="DynaFLIP method overview video">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </div>
 </section>
@@ -173,77 +216,8 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overall Framework of DynaFLIP</h2>
-      </div>
-    </div>
-  </div>
-  <div class="container is-max-widescreen">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <video src="./static/videos/dynaflip_method.mp4"
-               poster="./static/images/architecture.png"
-               autoplay muted loop playsinline controls
-               preload="metadata"
-               style="width:100%; height:auto; border-radius:8px;"
-               aria-label="DynaFLIP method overview video">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Dataset Viewer -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Dataset Viewer</h2>
-      </div>
-    </div>
-
-    <div class="tabs is-centered pill-tabs">
-      <ul id="dataset-tabs">
-        <li class="is-active" data-dataset="agibot"><a>Agibot</a></li>
-        <li data-dataset="ego4d"><a>Ego4D</a></li>
-        <li data-dataset="droid"><a>Droid</a></li>
-        <li data-dataset="bridge"><a>Bridge</a></li>
-        <li data-dataset="ssv2"><a>SSV2</a></li>
-        <li data-dataset="oxe"><a>OXE</a></li>
-      </ul>
-    </div>
-
-    <p class="dataset-hint">💡 Click on any thumbnail to view the (image, 3D flow, language) triplet</p>
-
-    <div id="dataset-thumbnails" class="dataset-thumbnails"></div>
-
-    <div class="dataset-detail">
-      <div class="columns is-centered">
-        <div class="column is-one-third has-text-centered">
-          <div class="triplet-label">Image</div>
-          <img id="detail-image" src="./static/dataset/placeholder.png" alt="Image">
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <div class="triplet-label">3D Flow</div>
-          <img id="detail-flow" src="./static/dataset/placeholder.png" alt="3D Flow">
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <div class="triplet-label">Language</div>
-          <p id="detail-language">Select a thumbnail above.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- Experiments -->
-<section class="section section-alt" id="Experiments">
+<section class="section" id="Experiments">
   <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-centered">Experiments</h2>
 
@@ -1016,6 +990,50 @@
             <tr><td>DynaFLIP (full)</td><td class="result-mean"><strong>44.0</strong></td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Dataset Viewer -->
+<section class="section section-alt">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset Viewer</h2>
+      </div>
+    </div>
+
+    <div class="tabs is-centered pill-tabs">
+      <ul id="dataset-tabs">
+        <li class="is-active" data-dataset="agibot"><a>Agibot</a></li>
+        <li data-dataset="ego4d"><a>Ego4D</a></li>
+        <li data-dataset="droid"><a>Droid</a></li>
+        <li data-dataset="bridge"><a>Bridge</a></li>
+        <li data-dataset="ssv2"><a>SSV2</a></li>
+        <li data-dataset="oxe"><a>OXE</a></li>
+      </ul>
+    </div>
+
+    <p class="dataset-hint">💡 Click on any thumbnail to view the (image, 3D flow, language) triplet</p>
+
+    <div id="dataset-thumbnails" class="dataset-thumbnails"></div>
+
+    <div class="dataset-detail">
+      <div class="columns is-centered">
+        <div class="column is-one-third has-text-centered">
+          <div class="triplet-label">Image</div>
+          <img id="detail-image" src="./static/dataset/placeholder.png" alt="Image">
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="triplet-label">3D Flow</div>
+          <img id="detail-flow" src="./static/dataset/placeholder.png" alt="3D Flow">
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <div class="triplet-label">Language</div>
+          <p id="detail-language">Select a thumbnail above.</p>
+        </div>
       </div>
     </div>
   </div>
