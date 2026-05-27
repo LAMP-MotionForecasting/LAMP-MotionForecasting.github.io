@@ -437,58 +437,14 @@
 </section>
 
 
-<!-- Dataset Viewer -->
-<section class="section section-alt">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Dataset Viewer</h2>
-      </div>
-    </div>
-
-    <div class="tabs is-centered pill-tabs">
-      <ul id="dataset-tabs">
-        <li class="is-active" data-dataset="agibot"><a>Agibot</a></li>
-        <li data-dataset="ego4d"><a>Ego4D</a></li>
-        <li data-dataset="droid"><a>Droid</a></li>
-        <li data-dataset="bridge"><a>Bridge</a></li>
-        <li data-dataset="ssv2"><a>SSV2</a></li>
-        <li data-dataset="oxe"><a>OXE</a></li>
-      </ul>
-    </div>
-
-    <p class="dataset-hint">💡 Click on any thumbnail to view the (image, 3D flow, language) triplet</p>
-
-    <div id="dataset-thumbnails" class="dataset-thumbnails"></div>
-
-    <div class="dataset-detail">
-      <div class="columns is-centered">
-        <div class="column is-one-third has-text-centered">
-          <div class="triplet-label">Image</div>
-          <img id="detail-image" src="./static/dataset/placeholder.png" alt="Image">
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <div class="triplet-label">3D Flow</div>
-          <img id="detail-flow" src="./static/dataset/placeholder.png" alt="3D Flow">
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <div class="triplet-label">Language</div>
-          <p id="detail-language">Select a thumbnail above.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{lee2026dynaflip,
-  title={DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation},
-  author={Lee, Jusuk and Lee, Seungjae and Shin, Jonghun and Jung, Hoseong and Kim, Sungha and Cho, Daesol and Kim, H. Jin and Huang, Jia-Bin and Huang, Furong},
-  journal={arXiv preprint arXiv:TODO_ARXIV_ID},
-  year={2026},
+    <pre><code>@inproceedings{han2026lamp,
+  title     = {Lane-Topology-Guided Motion Forecasting via Feasible Motion Primitive Selection},
+  author    = {Han, Sangjin and Jung, Hoseong and Her, Jeongtae and Choi, Changhyun and Kim, H. Jin},
+  booktitle = {TODO_VENUE},
+  year      = {2026}
 }</code></pre>
   </div>
 </section>
@@ -506,8 +462,6 @@
   </div>
 </footer>
 
-<script src="./static/js/dataset.js"></script>
-<script src="./static/js/dataset-viewer.js"></script>
 <script src="./static/js/experiments.js"></script>
 
 </body>
