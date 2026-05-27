@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation">
-  <meta name="keywords" content="TODO, keywords">
+  <meta name="description" content="LAMP is a lane-topology-aware motion forecasting framework that produces diverse and lane-compliant multimodal trajectory predictions via VQ-VAE-learned motion primitives and feasibility-aware intention selection.">
+  <meta name="keywords" content="motion forecasting, lane topology, VQ-VAE, motion primitives, autonomous driving, Argoverse 2, trajectory prediction">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DynaFLIP: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation</title>
+  <title>LAMP: Lane-Topology-Guided Motion Forecasting via Feasible Motion Primitive Selection</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -36,7 +36,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://ju-suk.github.io/">
+      <a class="navbar-item" href="https://github.com/LAMP-MotionForecasting">
         <span class="icon"><i class="fas fa-home"></i></span>
       </a>
     </div>
@@ -49,43 +49,34 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><strong>DynaFLIP</strong>: Rethinking Robotics Perception via Tri-Modal-Dynamics Guided Representation</h1>
+          <h1 class="title is-1 publication-title"><strong>LAMP</strong>: Lane-Topology-Guided Motion Forecasting via Feasible Motion Primitive Selection</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://ju-suk.github.io">Jusuk Lee</a><sup>1</sup></span>&emsp;
+              <a href="#">Sangjin Han</a><sup>1&dagger;</sup></span>&emsp;
             <span class="author-block">
-              <a href="https://sjlee.cc/">Seungjae Lee</a><sup>2</sup></span>&emsp;
+              <a href="#">Hoseong Jung</a><sup>1&dagger;</sup></span>&emsp;
             <span class="author-block">
-              <a href="https://jhshin00.github.io/">Jonghun Shin</a><sup>1</sup></span>&emsp;
+              <a href="#">Jeongtae Her</a><sup>2&dagger;</sup></span>&emsp;
             <span class="author-block">
-              <a href="https://junghoseong.github.io/">Hoseong Jung</a><sup>1</sup></span>&emsp;
+              <a href="#">Changhyun Choi</a><sup>1</sup></span>&emsp;
             <span class="author-block">
-              <a href="https://shkim37.github.io/">Sungha Kim</a><sup>1</sup></span>&emsp;
-            <span class="author-block">
-              <a href="https://dscho1234.github.io/">Daesol Cho</a><sup>3</sup></span>&emsp;
-            <span class="author-block">
-              <a href="https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&hl=en">H. Jin Kim</a><sup>1</sup></span>&emsp;
-            <span class="author-block">
-              <a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a><sup>2&dagger;</sup></span>&emsp;
-            <span class="author-block">
-              <a href="https://furong-huang.com/">Furong Huang</a><sup>2&dagger;</sup></span>
+              <a href="#">H. Jin Kim</a><sup>1*</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Seoul National University</span>&emsp;
-            <span class="author-block"><sup>2</sup>University of Maryland, College Park</span>&emsp;
-            <span class="author-block"><sup>3</sup>Georgia Institute of Technology</span>
+            <span class="author-block"><sup>2</sup>Hyundai Motor Company</span>
           </div>
 
           <div class="is-size-6 publication-authors" style="color:#64748b; margin-top:6px;">
-            <sup>&dagger;</sup> equal advising
+            <sup>&dagger;</sup> Equal contribution &emsp; <sup>*</sup> Corresponding author
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- Paper Link. -->
               <span class="link-block">
-                <a href="TODO_PAPER_PDF_URL"
+                <a href="TODO_PAPER_URL"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
@@ -97,22 +88,6 @@
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://dynaflip-robotics.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code (Coming Soon)</span>
-                </a>
-              </span>
-              <!-- HuggingFace Link. -->
-              <span class="link-block">
-                <a href="https://dynaflip-robotics.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">🤗</span>
-                  <span>Hugging Face (Coming Soon)</span>
                 </a>
               </span>
             </div>
@@ -129,14 +104,13 @@
   <div class="container is-max-widescreen">
     <div class="hero-body">
       <video id="teaser"
-             src="./static/videos/project_page_overview_video.mp4"
-             poster="./static/images/project_page_overview_poster.jpg"
+             src="./static/videos/lamp_video.mp4"
              controls muted preload="metadata" playsinline
              style="display:block; width:100%; margin:0 auto;">
         Your browser does not support the video tag.
       </video>
       <h2 class="subtitle has-text-centered" style="font-size: 1.4rem; margin: 1.5rem auto 0; max-width: 1200px;">
-        <strong>TL;DR:</strong> DynaFLIP learns dynamics-aware visual representations by aligning image transitions, language, and 3D flow &mdash; preserving the control-relevant information for manipulation.
+        <strong>TL;DR:</strong> LAMP produces multimodal trajectory predictions that are both diverse and lane-compliant, by integrating discrete motion primitives with lane-topology constraints &mdash; yielding feasible and diverse hypotheses for safe downstream planning.
       </h2>
     </div>
   </div>
@@ -148,13 +122,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">DynaFLIP outperforms existing vision foundation models</h2>
+        <h2 class="title is-3">LAMP generates diverse and lane-consistent multimodal predictions</h2>
         <p class="is-size-5" style="max-width: 900px; margin: 0.5rem auto 1.5rem;">
-          Consistent gains across simulation (MetaWorld, RLBench, LIBERO) and real-world manipulation &mdash; with the lead reaching <strong>+22.5%</strong> on out-of-distribution scenarios.
+          On intersection scenarios, LAMP improves both diversity (Scenario 1) and feasibility (Scenario 2) over the MTR baseline &mdash; producing trajectories that adhere to lane topology while preserving multimodal coverage.
         </p>
-        <img src="./static/images/downstream_performance.png"
-             alt="DynaFLIP downstream performance across simulation, metric, and real-world axes"
-             style="display:block; max-width: 720px; width: 100%; margin: 0 auto;">
+        <img src="./static/images/lamp_qualitative.png"
+             alt="Qualitative comparison of LAMP vs MTR on intersection scenarios"
+             style="display:block; max-width: 900px; width: 100%; margin: 0 auto;">
       </div>
     </div>
   </div>
@@ -165,21 +139,34 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overall Framework of DynaFLIP</h2>
+        <h2 class="title is-3">Overall Framework of LAMP</h2>
       </div>
     </div>
   </div>
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <video src="./static/videos/dynaflip_method.mp4"
-               poster="./static/images/architecture.png"
-               autoplay muted loop playsinline controls
-               preload="metadata"
-               style="width:100%; height:auto; border-radius:8px;"
-               aria-label="DynaFLIP method overview video">
-          Your browser does not support the video tag.
-        </video>
+        <img src="./static/images/lamp_vqvae.png"
+             alt="Stage 1: Learning motion primitives via NSVQ-based VQ-VAE"
+             style="width:100%; height:auto; border-radius:8px;">
+        <p class="has-text-centered"
+           style="margin-top:0.5rem; font-size:0.95rem; color:#64748b;">
+          <strong>Stage 1:</strong> Learning a discrete codebook of
+          motion primitives via NSVQ-based VQ-VAE.
+        </p>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered"
+         style="margin-top:1.5rem;">
+      <div class="column is-full-width">
+        <img src="./static/images/lamp_framework.png"
+             alt="Stage 2: LAMP forecasting framework with feasibility-guided intention selection"
+             style="width:100%; height:auto; border-radius:8px;">
+        <p class="has-text-centered"
+           style="margin-top:0.5rem; font-size:0.95rem; color:#64748b;">
+          <strong>Stage 2:</strong> The LAMP forecasting framework with
+          lane-topology-guided intention selection.
+        </p>
       </div>
     </div>
   </div>
@@ -195,19 +182,19 @@
         <div class="content has-text-justified">
           <h3 class="title is-5">Motivation</h3>
           <p>
-            Robot manipulation critically depends on perception that preserves the action-relevant aspects of a scene. Yet most robot learning pipelines are built upon visual encoders <strong>pre-trained for static recognition or vision-language alignment, leaving motion understanding to downstream policies</strong>.
+            Multimodal motion forecasting must be accurate, feasible, and diverse to support safe planning. However, existing predictors rely on scene-agnostic intention priors (anchors, target points) and training objectives that prioritize the most-probable ground-truth mode. As a result, lower-probability modes often violate lane topology or traffic rules, producing off-road or unreachable trajectories that are unreliable for downstream planners.
           </p>
           <h3 class="title is-5">Approach</h3>
           <p>
-            We introduce DynaFLIP, a dynamics-aware multimodal pre-training framework that <strong>pushes motion understanding upstream into perception</strong>. We construct <strong>image–language–3D flow triplets</strong> from heterogeneous human and robot videos, and use these triplets as training-time supervision to shape an image-only encoder.
+            We propose <strong>LAMP</strong> (Lane-Aligned Motion Primitives), a topology-aware motion forecasting framework that improves the reliability of multimodal prediction sets by combining structured motion primitives with feasibility-aware intention selection.
           </p>
           <h3 class="title is-5">Method</h3>
           <p>
-            Our key idea is to <strong>encourage the three modalities to span a small simplex volume in the shared hyperspherical space</strong>—a smaller simplex volume indicating stronger alignment. To avoid the geometric ambiguity and trivial collapse of naive volume minimization, we combine simplex-volume minimization with a cosine regularizer and a contrastive objective.
+            LAMP rests on two design principles. (i) We learn a discrete codebook of <strong>shape-aware motion primitives</strong> via an NSVQ-based VQ-VAE, capturing the full spatiotemporal dynamics of driving intentions beyond endpoint-based priors. (ii) We use HD-map reachable-lane sets as a soft teacher distribution to train a <strong>lane-topology-guided intention selector</strong> that filters infeasible intention queries before they enter the Transformer decoder.
           </p>
           <h3 class="title is-5">Results</h3>
           <p>
-            Our analyses show that <strong>DynaFLIP focuses on control-relevant regions critical for manipulation</strong>. The resulting dynamics-aware representations serve as <strong>reusable visual backbones</strong> and consistently outperform baselines across diverse downstream policies, including VLAs. We validate this across diverse simulation and real-world setups, with <strong>gains reaching +22.5% under out-of-distribution scenarios</strong>. Our results suggest that robot generalization improves when visual representations are trained to encode not just what is present, but how the world changes under action.
+            On the Argoverse 2 motion forecasting benchmark, LAMP matches strong baselines on displacement accuracy while substantially improving feasibility &mdash; particularly the planner-relevant traffic-rule metric <strong>FR (0.665 &rarr; 0.774 vs. MTR)</strong> &mdash; and diversity <strong>(DwF 7.811 &rarr; 12.559 vs. MTR)</strong>. This combination of diverse-yet-feasible hypotheses provides more reliable multimodal prediction sets for downstream planning.
           </p>
         </div>
       </div>
