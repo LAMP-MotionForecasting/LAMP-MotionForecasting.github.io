@@ -104,7 +104,7 @@
   <div class="container is-max-widescreen">
     <div class="hero-body">
       <video id="teaser"
-             src="./static/videos/lamp_re.mp4"
+             src="./static/videos/lamp_final.mp4"
              controls muted preload="metadata" playsinline
              style="display:block; width:100%; margin:0 auto;">
         Your browser does not support the video tag.
@@ -122,11 +122,11 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">LAMP generates diverse and lane-consistent multimodal predictions</h2>
+        <h2 class="title is-3" style="font-size: 1.6rem;">LAMP generates diverse and lane-consistent multimodal predictions</h2>
         <p class="is-size-5" style="max-width: 900px; margin: 0.5rem auto 1.5rem;">
-          On intersection scenarios, LAMP improves both diversity (Scenario 1) and feasibility (Scenario 2) over the MTR baseline &mdash; producing trajectories that adhere to lane topology while preserving multimodal coverage.
+          On intersection scenarios, LAMP improves both diversity and feasibility over the MTR baseline &mdash; producing trajectories that adhere to lane topology while preserving multimodal coverage.
         </p>
-        <img src="./static/images/lamp_qualitative_re.png"
+        <img src="./static/images/lamp_qual_final.png"
              alt="Qualitative comparison of LAMP vs MTR on intersection scenarios"
              style="display:block; max-width: 900px; width: 100%; margin: 0 auto;">
       </div>
@@ -176,11 +176,11 @@
           </p>
           <h3 class="title is-5">Method</h3>
           <p>
-            LAMP rests on two design principles. (i) We learn a discrete codebook of <strong>shape-aware motion primitives</strong> via an NSVQ-based VQ-VAE, capturing the full spatiotemporal dynamics of driving intentions beyond endpoint-based priors. (ii) We use HD-map reachable-lane sets as a soft teacher distribution to train a <strong>lane-topology-guided intention selector</strong> that filters infeasible intention queries before they enter the Transformer decoder.
+            LAMP builds on two design principles. (i) We learn a discrete codebook of <strong>shape-aware motion primitives</strong> via an NSVQ-based VQ-VAE, capturing the full spatiotemporal dynamics of driving intentions beyond endpoint-based priors. (ii) We use HD-map reachable-lane sets as a soft teacher distribution to train a <strong>lane-topology-guided intention selector</strong> that filters infeasible intention queries before they enter the Transformer decoder.
           </p>
           <h3 class="title is-5">Results</h3>
           <p>
-            On the Argoverse 2 motion forecasting benchmark, LAMP matches strong baselines on displacement accuracy while substantially improving feasibility &mdash; particularly the planner-relevant traffic-rule metric <strong>FR (0.665 &rarr; 0.774 vs. MTR)</strong> &mdash; and diversity <strong>(DwF 7.811 &rarr; 12.559 vs. MTR)</strong>. This combination of diverse-yet-feasible hypotheses provides more reliable multimodal prediction sets for downstream planning.
+            On the Argoverse 2 motion forecasting benchmark, LAMP matches strong baselines on displacement accuracy while substantially improving feasibility &mdash; particularly the planner-relevant traffic-rule metric <strong>FR (0.665 &rarr; 0.774 vs. MTR)</strong> &mdash; and diversity <strong>(DwF 7.811 &rarr; 12.559 vs. MTR)</strong>. This combination of diverse, lane-compliant hypotheses provides more reliable multimodal prediction sets for downstream planning.
           </p>
         </div>
       </div>
