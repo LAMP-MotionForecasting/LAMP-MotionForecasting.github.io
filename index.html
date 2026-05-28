@@ -16,7 +16,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" type="image/png" href="./static/images/robot.png">
+  <link rel="icon" type="image/png" href="./static/images/lamp.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -104,7 +104,7 @@
   <div class="container is-max-widescreen">
     <div class="hero-body">
       <video id="teaser"
-             src="./static/videos/lamp_video.mp4"
+             src="./static/videos/lamp_re.mp4"
              controls muted preload="metadata" playsinline
              style="display:block; width:100%; margin:0 auto;">
         Your browser does not support the video tag.
@@ -126,7 +126,7 @@
         <p class="is-size-5" style="max-width: 900px; margin: 0.5rem auto 1.5rem;">
           On intersection scenarios, LAMP improves both diversity (Scenario 1) and feasibility (Scenario 2) over the MTR baseline &mdash; producing trajectories that adhere to lane topology while preserving multimodal coverage.
         </p>
-        <img src="./static/images/lamp_qualitative.png"
+        <img src="./static/images/lamp_qualitative_re.png"
              alt="Qualitative comparison of LAMP vs MTR on intersection scenarios"
              style="display:block; max-width: 900px; width: 100%; margin: 0 auto;">
       </div>
@@ -146,27 +146,13 @@
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <img src="./static/images/lamp_vqvae.png"
-             alt="Stage 1: Learning motion primitives via NSVQ-based VQ-VAE"
-             style="width:100%; height:auto; border-radius:8px;">
-        <p class="has-text-centered"
-           style="margin-top:0.5rem; font-size:0.95rem; color:#64748b;">
-          <strong>Stage 1:</strong> Learning a discrete codebook of
-          motion primitives via NSVQ-based VQ-VAE.
-        </p>
-      </div>
-    </div>
-    <div class="columns is-centered has-text-centered"
-         style="margin-top:1.5rem;">
-      <div class="column is-full-width">
-        <img src="./static/images/lamp_framework.png"
-             alt="Stage 2: LAMP forecasting framework with feasibility-guided intention selection"
-             style="width:100%; height:auto; border-radius:8px;">
-        <p class="has-text-centered"
-           style="margin-top:0.5rem; font-size:0.95rem; color:#64748b;">
-          <strong>Stage 2:</strong> The LAMP forecasting framework with
-          lane-topology-guided intention selection.
-        </p>
+        <video src="./static/videos/method_overview.mp4"
+               autoplay muted loop playsinline controls
+               preload="metadata"
+               style="width:100%; height:auto; border-radius:8px;"
+               aria-label="LAMP method overview video">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
@@ -403,11 +389,11 @@
 
     <!-- 3) Feasibility-diversity trade-off via LoRA -->
     <div class="experiments-block">
-      <h3 class="title is-4 has-text-centered">Feasibility&ndash;diversity trade-off via LoRA</h3>
+      <h3 class="title is-4 has-text-centered">Findings: LoRA-based map-adaptive motion primitives exhibit a feasibility&ndash;diversity trade-off</h3>
       <p class="experiments-intro">We additionally explored injecting map priors into the NSVQ decoder via Low-Rank Adaptation (LoRA). Conditioning early on map features increases lane compliance (higher DAC and FR), but induces mode contraction &mdash; intention queries collapse toward dominant lane-following behaviors &mdash; sharply reducing diversity. Because LAMP prioritizes diverse-yet-feasible hypotheses for downstream planning, we exclude LoRA from the final model.</p>
       <img src="./static/images/lamp_lora.png"
            alt="LoRA-based map conditioning increases feasibility but collapses diversity"
-           style="display:block; max-width: 900px; width: 100%; margin: 1.5rem auto;">
+           style="display:block; max-width: 600px; width: 100%; margin: 1.5rem auto;">
       <table class="table is-bordered is-narrow is-fullwidth result-table">
         <thead>
           <tr>
